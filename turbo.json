@@ -9,7 +9,8 @@
     "GOOGLE_CLIENT_SECRET",
     "SUPABASE_URL",
     "SUPABASE_ANON_KEY",
-    "SUPABASE_SERVICE_KEY"
+    "SUPABASE_SERVICE_KEY",
+    "LK"
   ],
   "globalPassThroughEnv": [
     "NODE_ENV",
