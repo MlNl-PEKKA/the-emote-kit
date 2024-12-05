@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import type { Login } from "@/app/api/auth/login";
-import { api } from "@/trpc/server";
+import { api } from "@/trpc/client/server";
 
 const login = async (input: Login["input"]) => {
   const { url } = await api.auth.login(input);

@@ -8,7 +8,7 @@ import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
 import SuperJSON from "superjson";
 
-import type { AppRouter } from "@/server/trpc/root";
+import type { AppRouter } from "@/trpc/server/root";
 import { createQueryClient } from "./query-client";
 import { getBaseUrl } from "@/lib/getBaseUrl";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -62,7 +62,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
           },
         }),
       ],
-    }),
+    })
   );
 
   return (

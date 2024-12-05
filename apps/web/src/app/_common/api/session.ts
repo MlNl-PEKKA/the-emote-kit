@@ -1,5 +1,5 @@
-import { publicProcedure } from "@/server/trpc";
-import type { PublicProcedure } from "@/server/trpc";
+import { publicProcedure } from "@/trpc/server";
+import type { PublicProcedure } from "@/trpc/server";
 
 const query = ({ ctx }: PublicProcedure) => ctx.session;
 

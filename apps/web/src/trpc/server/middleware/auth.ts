@@ -1,6 +1,6 @@
 import type { User } from "@supabase/supabase-js";
 import { TRPCError } from "@trpc/server";
-import { createProtectedClient } from "@/db/client";
+import { createProtectedClient } from "@/lib/createProtectedClient";
 import { session } from "./session";
 import type { Middleware } from "..";
 

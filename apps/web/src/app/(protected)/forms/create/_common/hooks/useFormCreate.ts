@@ -1,5 +1,5 @@
-import type { ProcedureMutation } from "@/server/trpc";
-import { api } from "@/trpc/react";
+import type { ProcedureMutation } from "@/trpc/server";
+import { api } from "@/trpc/client/react";
 import type { Create } from "@/forms/create/api/create";
 import { useRouter } from "next/navigation";
 

@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { CardContent, Card as CardDev, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { DBTable } from "@/server/db/types";
+import type { DBTable } from "@repo/database/types";
 import { useRouter } from "next/navigation";
 
 type Props = DBTable<"form">;
@@ -27,7 +27,7 @@ export const Card = ({ status = "active", name = "Form 1", id }: Props) => {
               "ml-2",
               status === "active"
                 ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100"
-                : "hidden",
+                : "hidden"
             )}
           >
             {status === "active" ? "Active" : "Inactive"}

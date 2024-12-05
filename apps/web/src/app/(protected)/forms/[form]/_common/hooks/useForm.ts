@@ -1,4 +1,4 @@
-import { api } from "@/trpc/react";
+import { api } from "@/trpc/client/react";
 import { useFormParams } from "./useFormParams";
 
 export const useForm = () => {

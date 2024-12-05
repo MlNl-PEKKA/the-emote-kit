@@ -1,7 +1,7 @@
 import { formProcedure } from "@/form/utils/formProcedure";
 import type { FormProcedure } from "@/form/utils/formProcedure";
-import { formEmoteRowSchema } from "@/server/db/zod";
-import type { ProcedureDefinition } from "@/server/trpc";
+import { formEmoteRowSchema } from "@repo/database/zod";
+import type { ProcedureDefinition } from "@/trpc/server";
 import { z } from "zod";
 
 const schema = z.object({

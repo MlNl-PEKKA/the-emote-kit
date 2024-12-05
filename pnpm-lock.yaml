@@ -56,12 +56,6 @@ importers:
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
-      '@supabase/ssr':
-        specifier: ^0.5.1
-        version: 0.5.2(@supabase/supabase-js@2.46.2)
-      '@supabase/supabase-js':
-        specifier: ^2.45.4
-        version: 2.46.2
       '@tanstack/react-query':
         specifier: ^5.59.13
         version: 5.62.0(react@18.3.1)
@@ -129,12 +123,24 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(@types/react@18.3.12)(react@18.3.1)
     devDependencies:
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
       '@types/node':
         specifier: ^20.14.10
         version: 20.17.9
@@ -147,15 +153,43 @@ importers:
       postcss:
         specifier: ^8.4.39
         version: 8.4.49
+      tailwindcss:
+        specifier: ^3.4.3
+        version: 3.4.15
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
+
+  packages/database:
+    dependencies:
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../types
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      next:
+        specifier: ^15.0.3
+        version: 15.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       supabase:
         specifier: ^1.223.10
         version: 1.223.10
       supabase-to-zod:
         specifier: ^1.0.7
         version: 1.0.7
-      tailwindcss:
-        specifier: ^3.4.3
-        version: 3.4.15
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
@@ -220,6 +254,18 @@ importers:
       tailwindcss:
         specifier: ^3.4.15
         version: 3.4.15
+
+  packages/types:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
 
   packages/typescript-config: {}
 
@@ -507,8 +553,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@oclif/core@4.0.33':
-    resolution: {integrity: sha512-NoTDwJ2L/ywpsSjcN7jAAHf3m70Px4Yim2SJrm16r70XpnfbNOdlj1x0HEJ0t95gfD+p/y5uy+qPT/VXTh/1gw==}
+  '@oclif/core@4.0.34':
+    resolution: {integrity: sha512-jHww7lIqyifamynDSjDNNjNOwFTQdKYeOSYaxUaoWhqXnRwacZ+pfUN4Y0L9lqSN4MQtlWM9mwnBD7FvlT9kPw==}
     engines: {node: '>=18.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
@@ -3109,7 +3155,7 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@oclif/core@4.0.33':
+  '@oclif/core@4.0.34':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.3.2
@@ -5464,7 +5510,7 @@ snapshots:
 
   ts-to-zod@3.7.0:
     dependencies:
-      '@oclif/core': 4.0.33
+      '@oclif/core': 4.0.34
       '@typescript/vfs': 1.6.0(typescript@5.6.2)
       case: 1.6.3
       chokidar: 3.6.0

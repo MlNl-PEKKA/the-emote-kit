@@ -10,17 +10,9 @@
     "lint": "next lint",
     "check-types": "tsc --noEmit",
     "tslint": "pnpm lint && pnpm check-types",
-    "shad": "pnpx shadcn@latest add",
-    "zod": "pnpm exec supabase-to-zod --input src/server/db/schema/default.ts --output src/server/db/zod.ts",
-    "types:local": "pnpm exec supabase gen types --lang=typescript --local --schema public> src/server/db/schema/default.ts && pnpm run zod",
-    "types:remote": "pnpm exec supabase gen types --lang=typescript --linked --schema public> src/server/db/schema/default.ts && pnpm run zod",
-    "seed:local": "pnpm exec supabase db dump -f supabase/seed.sql --local --data-only --exclude public.user,auth.users,auth.identities,auth.audit_log_entries,auth.flow_state,auth.sessions,auth.mfa_amr_claims,auth.one_time_tokens,auth.refresh_tokens",
-    "seed:remote": "pnpm exec supabase db dump -f supabase/seed.sql --linked --data-only --exclude public.user,auth.users,auth.identities,auth.audit_log_entries,auth.flow_state,auth.sessions,auth.mfa_amr_claims,auth.one_time_tokens,auth.refresh_tokens",
-    "db": "pnpm exec supabase db",
-    "migration": "pnpm exec supabase migration"
+    "shad": "pnpx shadcn@latest add"
   },
   "dependencies": {
-    "@repo/tailwind-config": "workspace:*",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -32,8 +24,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.2",
-    "@supabase/ssr": "^0.5.1",
-    "@supabase/supabase-js": "^2.45.4",
+    "@repo/tailwind-config": "workspace:*",
     "@tanstack/react-query": "^5.59.13",
     "@tanstack/react-query-devtools": "^5.59.13",
     "@trpc/client": "^11.0.0-rc.446",
@@ -58,14 +49,16 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@repo/database": "workspace:*",
     "@repo/eslint-config": "workspace:*",
+    "@repo/types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.45.4",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "postcss": "^8.4.39",
-    "supabase": "^1.223.10",
-    "supabase-to-zod": "^1.0.7",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.6.2"
   }

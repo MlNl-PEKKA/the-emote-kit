@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card as CardDev, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { DBTable } from "@/server/db/types";
+import type { DBTable } from "@repo/database/types";
 import type { HTMLAttributes, ReactNode } from "react";
 
 type CardBadgeProps = Parameters<typeof Badge>[0];
@@ -12,7 +12,7 @@ const CardBadge = ({ className, ...props }: CardBadgeProps) => {
       className={cn(
         "pointer-events-none absolute right-2 top-2",
         props.hidden && "hidden",
-        className,
+        className
       )}
       {...props}
     />
@@ -24,7 +24,7 @@ const CardLoader = (props: HTMLAttributes<HTMLDivElement>) => {
     <div
       className={cn(
         "border-gray pointer-events-none absolute z-10 flex h-full w-full items-center justify-center overflow-hidden backdrop-blur-lg",
-        props.hidden && "hidden",
+        props.hidden && "hidden"
       )}
     >
       {props.children}
@@ -64,7 +64,7 @@ export const Card = ({
               "ml-2",
               visibility === "private"
                 ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100"
-                : "hidden",
+                : "hidden"
             )}
           >
             {visibility === "public" ? "Public" : "Private"}

@@ -1,5 +1,5 @@
-import { protectedProcedure } from "@/server/trpc";
-import type { ProtectedProcedure } from "@/server/trpc";
+import { protectedProcedure } from "@/trpc/server";
+import type { ProtectedProcedure } from "@/trpc/server";
 import { TRPCError } from "@trpc/server";
 
 const query = async ({ ctx }: ProtectedProcedure) => {

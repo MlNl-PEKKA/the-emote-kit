@@ -1,6 +1,6 @@
-import { formRowSchema } from "@/server/db/zod";
-import { protectedProcedure } from "@/server/trpc";
-import type { Procedure } from "@/server/trpc";
+import { formRowSchema } from "@repo/database/zod";
+import { protectedProcedure } from "@/trpc/server";
+import type { Procedure } from "@/trpc/server";
 import { z } from "zod";
 
 const schema = formRowSchema

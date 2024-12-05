@@ -1,4 +1,4 @@
-import type { Custom, CustomizableTypes } from "@/lib/types";
+import type { Custom, CustomizableTypes } from "@repo/types";
 import type { Database } from "../default";
 
 type DatabaseTables = Database["public"]["Tables"];

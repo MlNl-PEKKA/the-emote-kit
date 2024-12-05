@@ -1,4 +1,4 @@
-import { createTRPCRouter } from "@/server/trpc";
+import { createTRPCRouter } from "@/trpc/server";
 import { insert } from "./insert";
 import { options } from "./options";
 import { read } from "./read";

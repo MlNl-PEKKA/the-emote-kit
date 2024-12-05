@@ -1,4 +1,4 @@
-import { createTRPCRouter } from "@/server/trpc";
+import { createTRPCRouter } from "@/trpc/server";
 import { read } from "./read";
 import { update } from "./update";
 import { kit } from "@/form/kit/api";

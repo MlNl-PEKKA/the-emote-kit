@@ -1,5 +1,5 @@
-import { protectedProcedure } from "@/server/trpc";
-import type { ProcedureDefinition, ProtectedProcedure } from "@/server/trpc";
+import { protectedProcedure } from "@/trpc/server";
+import type { ProcedureDefinition, ProtectedProcedure } from "@/trpc/server";
 import { TRPCError } from "@trpc/server";
 import { schema } from "@/forms/create/schema/create";
 

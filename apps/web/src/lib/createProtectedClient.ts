@@ -1,12 +1,11 @@
-import type { DB } from "@/db/types";
-import type { TRPCContext } from "@/server/trpc";
-import { createServerClient } from "@supabase/ssr";
-import { createClient as _createClient } from "@supabase/supabase-js";
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import type { TRPCContext } from "@/trpc/server";
+import { createServerClient } from "@repo/database/client";
 
 type Args = Pick<TRPCContext, "cookies">;
 
 export const createProtectedClient = (opts: Args) => {
-  return createServerClient<DB>(
+  return createServerClient(
     process.env.SUPABASE_URL!,
     process.env.SUPABASE_ANON_KEY!,
     {
@@ -22,7 +21,7 @@ export const createProtectedClient = (opts: Args) => {
                 httpOnly: true,
                 secure: true,
                 sameSite: "lax",
-              }),
+              })
             );
           } catch {
             // The `setAll` method was called from a Server Component.
@@ -31,12 +30,6 @@ export const createProtectedClient = (opts: Args) => {
           }
         },
       },
-    },
+    }
   );
 };
-
-export const createPublicClient = () =>
-  _createClient<DB>(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_KEY!,
-  );

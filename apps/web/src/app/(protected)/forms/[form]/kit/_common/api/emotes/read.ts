@@ -1,6 +1,6 @@
 import { formProcedure } from "@/form/utils/formProcedure";
 import type { FormProcedure } from "@/form/utils/formProcedure";
-import type { ProcedureDefinition } from "@/server/trpc";
+import type { ProcedureDefinition } from "@/trpc/server";
 import { TRPCError } from "@trpc/server";
 
 const query = async ({ ctx, input }: FormProcedure) => {

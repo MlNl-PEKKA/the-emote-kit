@@ -7,7 +7,6 @@
       "@repo/*": ["../../packages/*"],
       "@/components/*": ["./src/components/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/server/*": ["./src/server/*"],
       "@/db/*": ["./src/server/db/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/trpc/*": ["./src/trpc/*"],

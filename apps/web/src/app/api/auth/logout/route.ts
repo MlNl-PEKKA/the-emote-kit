@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { api } from "@/trpc/server";
+import { api } from "@/trpc/client/server";
 import { connection } from "next/server";
 
 export const GET = async () => {

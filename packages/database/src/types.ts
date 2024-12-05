@@ -1,5 +1,5 @@
-import type { Database, Tables } from "@/db/schema";
-import type { Custom } from "@/lib/types";
+import type { Database, Tables } from "./schema";
+import type { Custom } from "@repo/types";
 
 export type DB = Custom<
   Database,

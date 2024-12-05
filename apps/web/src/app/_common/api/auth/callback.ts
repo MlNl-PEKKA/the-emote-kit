@@ -1,8 +1,8 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createProtectedClient } from "@/db/client";
-import { publicProcedure } from "@/server/trpc";
-import type { PublicProcedure } from "@/server/trpc";
+import { createProtectedClient } from "@/lib/createProtectedClient";
+import { publicProcedure } from "@/trpc/server";
+import type { PublicProcedure } from "@/trpc/server";
 
 const schema = z.object({
   origin: z.string(),

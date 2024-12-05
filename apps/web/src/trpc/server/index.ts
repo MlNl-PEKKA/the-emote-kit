@@ -15,12 +15,12 @@ import { t } from "./init";
 import { auth } from "./middleware/auth";
 import { pro } from "./middleware/pro";
 import { session } from "./middleware/session";
-import { createPublicClient } from "@/server/db/client";
-import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
+import { createPublicClient } from "@/lib/createPublicClient";
+import type { cookies } from "next/headers";
 
 export type TRPCContext = {
   headers: Headers;
-  cookies: ReadonlyRequestCookies;
+  cookies: Awaited<ReturnType<typeof cookies>>;
 };
 
 export const createTRPCContext = async (opts: TRPCContext) => {

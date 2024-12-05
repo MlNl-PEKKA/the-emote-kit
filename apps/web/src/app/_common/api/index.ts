@@ -1,4 +1,4 @@
-import { createTRPCRouter } from "@/server/trpc";
+import { createTRPCRouter } from "@/trpc/server";
 import { auth } from "./auth";
 import { protectedAPI } from "@/protected/api";
 import { session } from "./session";

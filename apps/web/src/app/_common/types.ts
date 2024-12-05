@@ -1,4 +1,4 @@
-import type { Prettify } from "@/lib/types";
+import type { Prettify } from "@repo/types";
 import type { ReactNode } from "react";
 
 type InputParams = undefined | string | readonly string[];

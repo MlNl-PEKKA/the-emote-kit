@@ -1,4 +1,4 @@
-import { createProtectedClient } from "@/db/client";
+import { createProtectedClient } from "@/lib/createProtectedClient";
 import type { Middleware } from "..";
 import { timing } from "./timing";
 
