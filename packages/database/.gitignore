@@ -45,8 +45,8 @@ yarn-error.log*
 # idea files
 .idea
 
-/supabase/.branches
-/supabase/.temp
+# /supabase/.branches
+# /supabase/.temp
 /supabase/seed.sql
 
 debug.log
