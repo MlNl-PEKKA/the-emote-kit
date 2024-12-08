@@ -14,7 +14,7 @@ declare global {
 export const Widget = () => (
   <>
     <Script
-      src="http://localhost:5173/dist/emote-widget.umd.js"
+      src={process.env.NEXT_PUBLIC_WIDGET_URL}
       strategy="lazyOnload"
       onLoad={() => {
         console.log("Widget script loaded!");
