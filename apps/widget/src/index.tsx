@@ -1,3 +1,3 @@
-import WidgetWebComponent from "./widget-web-component";
+import WidgetWebComponent from "@/components/Widget";
 
-customElements.define("my-widget", WidgetWebComponent);
+customElements.define("emote-widget", WidgetWebComponent);

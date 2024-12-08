@@ -1,8 +1,19 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import ReactDom from "react-dom/client";
-import { Widget } from "./Widget";
+import { Button } from "@/components/ui/button";
+import tailwindStyles from "../index.css?inline";
+import { ThemeProvider } from "@/components/theme-provider";
 
-export const normalizeAttribute = (attribute: string) => {
+export const Widget = () => {
+  return (
+    <ThemeProvider>
+      <style>{tailwindStyles}</style>
+      <Button variant="outline">Buttons</Button>
+    </ThemeProvider>
+  );
+};
+
+const normalizeAttribute = (attribute: string) => {
   return attribute.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 };
 
