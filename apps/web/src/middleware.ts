@@ -3,6 +3,8 @@ import type { NextRequest } from "next/server";
 
 import { createProtectedClient } from "@/lib/createProtectedClient";
 import { cookies } from "next/headers";
+import { PROTECTED_PATHS } from "@/protected/constants/paths";
+import { SafeObject } from "@/lib/safeObject";
 
 export const config = {
   matcher: [
@@ -15,10 +17,19 @@ const PUBLIC_API = ["trpc", "auth"].map((api) => `^/api/${api}(/.*)?$`);
 const PUBLIC_ROUTES = new RegExp(["^/$", ...PUBLIC_API].join("|"));
 
 const PROTECTED_ROUTES = new RegExp(
-  ["^/emotes(/.*)?$", "^/abc(/.*)?$", "^/forms(/.*)?$", "^/profile$"].join("|")
+  SafeObject.keys(PROTECTED_PATHS)
+    .map((path) => {
+      switch (path) {
+        case "/profile":
+          return `^${path}$`;
+        default:
+          return `^${path}(/.*)?$`;
+      }
+    })
+    .join("|")
 );
 
-const PROTECTED_DEFAULT = "/forms";
+const PROTECTED_DEFAULT: keyof typeof PROTECTED_PATHS = "/projects";
 
 const SIGN_IN = "/login";
 

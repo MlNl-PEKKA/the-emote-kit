@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Boxes,
   CircleUserRound,
   List,
   LogOut,
@@ -11,6 +10,11 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
+import {
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -24,14 +28,9 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { useLogout } from "@/protected/hooks/useLogout";
-import { Path } from "./Path";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import {
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
+import { Path } from "./Path";
 
 export const AppSidebar = ({
   ...props
@@ -56,10 +55,7 @@ export const AppSidebar = ({
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Path logo={<List />} type="link" path="/forms" />
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Path logo={<Boxes />} type="link" path="/emotes" />
+                <Path logo={<List />} type="link" path="/projects" />
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
