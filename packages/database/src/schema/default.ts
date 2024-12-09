@@ -9,69 +9,31 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      emote: {
+      banner_project: {
         Row: {
           created_at: string
-          emoji: string
+          enabled: boolean
           id: string
-          is_pro: boolean
-          name: string
-          user_id: string | null
-          visibility: Database["public"]["Enums"]["emote_visibility"]
-        }
-        Insert: {
-          created_at?: string
-          emoji: string
-          id?: string
-          is_pro?: boolean
-          name: string
-          user_id?: string | null
-          visibility?: Database["public"]["Enums"]["emote_visibility"]
-        }
-        Update: {
-          created_at?: string
-          emoji?: string
-          id?: string
-          is_pro?: boolean
-          name?: string
-          user_id?: string | null
-          visibility?: Database["public"]["Enums"]["emote_visibility"]
-        }
-        Relationships: [
-          {
-            foreignKeyName: "emote_created_by_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "user"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      form: {
-        Row: {
-          created_at: string
-          id: string
-          name: string
-          status: Database["public"]["Enums"]["form_status"]
+          title: string
           user_id: string
         }
         Insert: {
           created_at?: string
+          enabled?: boolean
           id?: string
-          name: string
-          status?: Database["public"]["Enums"]["form_status"]
+          title: string
           user_id: string
         }
         Update: {
           created_at?: string
+          enabled?: boolean
           id?: string
-          name?: string
-          status?: Database["public"]["Enums"]["form_status"]
+          title?: string
           user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "form_user_id_fkey"
+            foreignKeyName: "banner_project_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "user"
@@ -79,78 +41,95 @@ export type Database = {
           },
         ]
       }
-      form_emote: {
+      feedback_project: {
         Row: {
           created_at: string
-          emote_id: string
-          form_id: string
+          enabled: boolean
           id: string
+          title: string
+          user_id: string
         }
         Insert: {
           created_at?: string
-          emote_id: string
-          form_id: string
+          enabled?: boolean
           id?: string
+          title: string
+          user_id: string
         }
         Update: {
           created_at?: string
-          emote_id?: string
-          form_id?: string
+          enabled?: boolean
           id?: string
+          title?: string
+          user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "form_emote_emote_id_fkey"
-            columns: ["emote_id"]
+            foreignKeyName: "feedback_project_user_id_fkey"
+            columns: ["user_id"]
             isOneToOne: false
-            referencedRelation: "emote"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "form_emote_emote_id_fkey"
-            columns: ["emote_id"]
-            isOneToOne: false
-            referencedRelation: "emote_option"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "form_emote_form_id_fkey"
-            columns: ["form_id"]
-            isOneToOne: false
-            referencedRelation: "form"
+            referencedRelation: "user"
             referencedColumns: ["id"]
           },
         ]
       }
-      reaction: {
+      poll_project: {
         Row: {
           created_at: string
-          form_emote_id: string
+          enabled: boolean
           id: string
-          user_id: string | null
+          title: string
+          user_id: string
         }
         Insert: {
           created_at?: string
-          form_emote_id: string
+          enabled?: boolean
           id?: string
-          user_id?: string | null
+          title: string
+          user_id: string
         }
         Update: {
           created_at?: string
-          form_emote_id?: string
+          enabled?: boolean
           id?: string
-          user_id?: string | null
+          title?: string
+          user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "reaction_form_emote_id_fkey"
-            columns: ["form_emote_id"]
+            foreignKeyName: "poll_project_user_id_fkey"
+            columns: ["user_id"]
             isOneToOne: false
-            referencedRelation: "form_emote"
+            referencedRelation: "user"
             referencedColumns: ["id"]
           },
+        ]
+      }
+      reaction_project: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
           {
-            foreignKeyName: "reaction_user_id_fkey"
+            foreignKeyName: "reaction_project_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "user"
@@ -187,35 +166,13 @@ export type Database = {
       }
     }
     Views: {
-      emote_option: {
-        Row: {
-          created_at: string | null
-          emoji: string | null
-          form_id: string[] | null
-          id: string | null
-          is_pro: boolean | null
-          name: string | null
-          user_id: string | null
-          visibility: Database["public"]["Enums"]["emote_visibility"] | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "emote_created_by_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "user"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      [_ in never]: never
     }
     Functions: {
       [_ in never]: never
     }
     Enums: {
-      emote_visibility: "public" | "private"
-      form_status: "active" | "inactive"
-      project_status: "active" | "inactive"
+      project_type: "feedback" | "banner" | "poll" | "reaction"
       user_membership: "free" | "pro"
     }
     CompositeTypes: {
