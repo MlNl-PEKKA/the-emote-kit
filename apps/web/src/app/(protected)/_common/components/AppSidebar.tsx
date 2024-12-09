@@ -55,7 +55,7 @@ export const AppSidebar = ({
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Path logo={<List />} type="link" path="/projects" />
+                <Path logo={<List />} type="link" path="/feedbacks" />
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>

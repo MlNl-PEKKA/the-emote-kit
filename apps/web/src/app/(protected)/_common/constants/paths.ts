@@ -1,4 +1,4 @@
-type ProtectedPath = "/profile" | "/projects";
+type ProtectedPath = "/profile" | "/feedbacks";
 
 type Path = "/" | ProtectedPath;
 
@@ -14,7 +14,7 @@ export const PUBLIC_ROUTES = {};
 
 export const PROTECTED_PATHS = {
   "/profile": "Profile",
-  "/projects": "Projects",
+  "/feedbacks": "Feedbacks",
 } as const satisfies ProtectedPaths;
 
 export const PATHS = {

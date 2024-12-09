@@ -29,7 +29,7 @@ const PROTECTED_ROUTES = new RegExp(
     .join("|")
 );
 
-const PROTECTED_DEFAULT: keyof typeof PROTECTED_PATHS = "/projects";
+const PROTECTED_DEFAULT: keyof typeof PROTECTED_PATHS = "/feedbacks";
 
 const SIGN_IN = "/login";
 
