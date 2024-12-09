@@ -18,30 +18,41 @@ type OutpurParallelRoutes<T extends InputParallelRoutes> =
       }
     : never;
 
-type RootLayout = {
+type RootLayoutProps = {
   children: ReactNode;
 };
 
-export type LayoutProps<
+type RootPageProps<T extends object | undefined = undefined> = {
+  searchParams: T extends undefined ? undefined : Promise<object>;
+};
+
+type RootCommonProps<T extends InputParams = undefined> = {
+  params: OutputParams<T>;
+};
+
+export type NextProps<
+  T extends InputParams = undefined,
+  U extends InputParallelRoutes = undefined,
+> = {
+  page: PageProps<T>;
+  layout: LayoutProps<T, U>;
+};
+
+type PageProps<T extends InputParams = undefined> = T extends undefined
+  ? RootPageProps
+  : Prettify<RootPageProps & RootCommonProps<T>>;
+
+type LayoutProps<
   T extends InputParams = undefined,
   U extends InputParallelRoutes = undefined,
 > = T extends undefined
   ? U extends undefined
-    ? RootLayout
-    : Prettify<RootLayout & OutpurParallelRoutes<U>>
+    ? RootLayoutProps
+    : Prettify<RootLayoutProps & OutpurParallelRoutes<U>>
   : U extends undefined
-    ? Prettify<
-        RootLayout & {
-          params: OutputParams<T>;
-        }
-      >
-    : Prettify<
-        RootLayout &
-          OutpurParallelRoutes<U> & {
-            params: OutputParams<T>;
-          }
-      >;
+    ? Prettify<RootLayoutProps & RootCommonProps<T>>
+    : Prettify<RootLayoutProps & OutpurParallelRoutes<U> & RootCommonProps<T>>;
 
-export type ParamsProps<T extends readonly string[]> = {
+export type ParamProps<T extends readonly string[]> = {
   [id in T[number]]: string;
 };

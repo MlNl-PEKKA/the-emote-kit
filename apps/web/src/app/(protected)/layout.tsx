@@ -1,10 +1,9 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/protected/components/AppSidebar";
 import { PathProvider } from "@/protected/contexts/PathProvider";
-import type { ProtectedLayoutProps } from "@/protected/types";
-import type { PropsWithChildren } from "react";
+import type { ProtectedNextProps } from "@/protected/types";
 
-const Layout = (props: PropsWithChildren<ProtectedLayoutProps>) => {
+const Layout = (props: ProtectedNextProps["layout"]) => {
   return (
     <PathProvider>
       <SidebarProvider className="min-h-screen">

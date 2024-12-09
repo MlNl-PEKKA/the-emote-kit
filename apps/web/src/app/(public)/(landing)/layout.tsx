@@ -1,8 +1,8 @@
-import type { PublicLandingLayoutProps } from "@/public/landing/types";
+import type { LandingNextProps } from "@/public/landing/types";
 import { api, HydrateClient } from "@/trpc/client/server";
 import { connection } from "next/server";
 
-const Layout = async (props: PublicLandingLayoutProps) => {
+const Layout = async (props: LandingNextProps["layout"]) => {
   await connection();
   void api.session.prefetch();
   return (

@@ -17,17 +17,8 @@
       "@/public/landing/*": ["./src/app/(public)/(landing)/_common/*"],
       "@/login/*": ["./src/app/(public)/login/_common/*"],
       "@/protected/*": ["./src/app/(protected)/_common/*"],
-      "@/emotes/*": ["./src/app/(protected)/emotes/_common/*"],
-      "@/forms/*": ["./src/app/(protected)/forms/_common/*"],
-      "@/forms/dashboard/*": [
-        "./src/app/(protected)/forms/(dashboard)/_common/*"
-      ],
-      "@/forms/create/*": ["./src/app/(protected)/forms/create/_common/*"],
-      "@/form/*": ["./src/app/(protected)/forms/[form]/_common/*"],
-      "@/form/settings/*": [
-        "./src/app/(protected)/forms/[form]/settings/_common/*"
-      ],
-      "@/form/kit/*": ["./src/app/(protected)/forms/[form]/kit/_common/*"]
+      "@/feedbacks/*": ["./src/app/(protected)/feedbacks/_common/*"],
+      "@/feedback/*": ["./src/app/(protected)/feedbacks/[feedback]/_common/*"]
     }
   },
   "include": [

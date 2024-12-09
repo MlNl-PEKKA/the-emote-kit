@@ -1,6 +1,6 @@
-import type { LayoutProps } from "@/app/types";
+import type { NextProps } from "@/app/types";
 
-export type ProtectedLayoutProps = LayoutProps<
+export type ProtectedNextProps = NextProps<
   undefined,
   ["breadcrumbs", "actions"]
 >;

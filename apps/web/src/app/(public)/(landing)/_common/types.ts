@@ -1,3 +1,3 @@
-import type { LayoutProps } from "@/app/types";
+import type { NextProps } from "@/app/types";
 
-export type PublicLandingLayoutProps = LayoutProps<undefined, ["login"]>;
+export type LandingNextProps = NextProps<undefined, ["login"]>;
