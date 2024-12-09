@@ -2,6 +2,7 @@ import type { DetailedHTMLProps, HTMLAttributes } from "react";
 import Script from "next/script";
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
       "emote-widget": DetailedHTMLProps<
