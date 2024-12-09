@@ -7,7 +7,6 @@ export const List = () => {
   const feedbacks = useFeedbacksRead();
   return (
     <>
-      KKKK
       {feedbacks.map((feedback) => (
         <Card key={feedback.id} {...feedback} />
       ))}

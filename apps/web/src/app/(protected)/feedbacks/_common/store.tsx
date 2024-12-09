@@ -5,19 +5,49 @@ import { useState, createContext, useContext } from "react";
 import type { StoreApi } from "zustand";
 import { createStore, useStore } from "zustand";
 
-type Store = {
-  search: string;
-  actions: {
-    setSearch: (_search: string) => void;
-  };
-};
+import type { Read } from "@/feedbacks/api/read";
+import { READ } from "@/feedbacks/constants/read";
+
+import type { StoreType } from "@/app/types";
+import type { NonUndefined } from "react-hook-form";
+
+type Status = NonUndefined<NonUndefined<Read["input"]>["status"]>;
+
+export type Store = StoreType<
+  Read["input"] & {
+    placeholderTitle: string;
+  },
+  {
+    pushStatus: (status: Status[number]) => void;
+    popStatus: (status: Status[number]) => void;
+  },
+  {
+    cancellable: () => boolean;
+  }
+>;
 
 const useStoreDefaults = () => {
   const [store] = useState<StoreApi<Store>>(() =>
-    createStore((set) => ({
-      search: "",
+    createStore((set, get) => ({
+      ...READ,
+      placeholderTitle: "",
+      cancellable: () => get().title !== "" || get().status.length !== 0,
       actions: {
-        setSearch: (search) => set({ search }),
+        reset: () =>
+          set({
+            title: "",
+            status: [],
+            placeholderTitle: "",
+          }),
+        setTitle: (title) => set({ title }),
+        setPlaceholderTitle: (placeholderTitle) => set({ placeholderTitle }),
+        setStatus: (status) => set({ status }),
+        pushStatus: (status) =>
+          set((state) => ({ status: [...state.status, status] })),
+        popStatus: (status) =>
+          set((state) => ({
+            status: state.status.filter((s) => s !== status),
+          })),
       },
     }))
   );

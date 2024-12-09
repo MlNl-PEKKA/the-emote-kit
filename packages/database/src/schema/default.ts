@@ -12,22 +12,22 @@ export type Database = {
       banner_project: {
         Row: {
           created_at: string
-          enabled: boolean
           id: string
+          status: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Insert: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Update: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title?: string
           user_id?: string
         }
@@ -44,22 +44,22 @@ export type Database = {
       feedback_project: {
         Row: {
           created_at: string
-          enabled: boolean
           id: string
+          status: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Insert: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Update: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title?: string
           user_id?: string
         }
@@ -76,22 +76,22 @@ export type Database = {
       poll_project: {
         Row: {
           created_at: string
-          enabled: boolean
           id: string
+          status: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Insert: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Update: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title?: string
           user_id?: string
         }
@@ -108,22 +108,22 @@ export type Database = {
       reaction_project: {
         Row: {
           created_at: string
-          enabled: boolean
           id: string
+          status: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Insert: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title: string
           user_id: string
         }
         Update: {
           created_at?: string
-          enabled?: boolean
           id?: string
+          status?: Database["public"]["Enums"]["project_status"]
           title?: string
           user_id?: string
         }
@@ -172,6 +172,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      project_status: "active" | "inactive"
       project_type: "feedback" | "banner" | "poll" | "reaction"
       user_membership: "free" | "pro"
     }

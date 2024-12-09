@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import type { Prettify } from "@repo/types";
 import type { ReactNode } from "react";
+import type { NonUndefined } from "react-hook-form";
 
 type InputParams = undefined | string | readonly string[];
 
@@ -56,3 +58,27 @@ type LayoutProps<
 export type ParamProps<T extends readonly string[]> = {
   [id in T[number]]: string;
 };
+
+export type StoreType<
+  T extends Record<string, unknown> | undefined,
+  U extends object = {},
+  V extends object = {},
+> =
+  NonUndefined<T> extends infer R
+    ? Prettify<
+        Required<{
+          [key in keyof R]: R[key];
+        }> &
+          V &
+          Required<{
+            actions: Prettify<
+              Required<{
+                [key in keyof R as key extends string
+                  ? `set${Capitalize<key>}`
+                  : never]: (_value: NonUndefined<R[key]>) => void;
+              }> &
+                U & { reset: () => void }
+            >;
+          }>
+      >
+    : never;

@@ -14,26 +14,23 @@ export const jsonSchema: z.ZodSchema<Json> = z.lazy(() =>
     .nullable(),
 );
 
-export const bannerProjectRowSchema = z.object({
-  created_at: z.string(),
-  enabled: z.boolean(),
-  id: z.string(),
-  title: z.string(),
-  user_id: z.string(),
-});
+export const projectStatusSchema = z.union([
+  z.literal("active"),
+  z.literal("inactive"),
+]);
 
 export const bannerProjectInsertSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string(),
   user_id: z.string(),
 });
 
 export const bannerProjectUpdateSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string().optional(),
   user_id: z.string().optional(),
 });
@@ -50,24 +47,24 @@ export const bannerProjectRelationshipsSchema = z.tuple([
 
 export const feedbackProjectRowSchema = z.object({
   created_at: z.string(),
-  enabled: z.boolean(),
   id: z.string(),
+  status: projectStatusSchema,
   title: z.string(),
   user_id: z.string(),
 });
 
 export const feedbackProjectInsertSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string(),
   user_id: z.string(),
 });
 
 export const feedbackProjectUpdateSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string().optional(),
   user_id: z.string().optional(),
 });
@@ -84,24 +81,24 @@ export const feedbackProjectRelationshipsSchema = z.tuple([
 
 export const pollProjectRowSchema = z.object({
   created_at: z.string(),
-  enabled: z.boolean(),
   id: z.string(),
+  status: projectStatusSchema,
   title: z.string(),
   user_id: z.string(),
 });
 
 export const pollProjectInsertSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string(),
   user_id: z.string(),
 });
 
 export const pollProjectUpdateSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string().optional(),
   user_id: z.string().optional(),
 });
@@ -118,24 +115,24 @@ export const pollProjectRelationshipsSchema = z.tuple([
 
 export const reactionProjectRowSchema = z.object({
   created_at: z.string(),
-  enabled: z.boolean(),
   id: z.string(),
+  status: projectStatusSchema,
   title: z.string(),
   user_id: z.string(),
 });
 
 export const reactionProjectInsertSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string(),
   user_id: z.string(),
 });
 
 export const reactionProjectUpdateSchema = z.object({
   created_at: z.string().optional(),
-  enabled: z.boolean().optional(),
   id: z.string().optional(),
+  status: projectStatusSchema.optional(),
   title: z.string().optional(),
   user_id: z.string().optional(),
 });
@@ -181,6 +178,14 @@ export const projectTypeSchema = z.union([
   z.literal("poll"),
   z.literal("reaction"),
 ]);
+
+export const bannerProjectRowSchema = z.object({
+  created_at: z.string(),
+  id: z.string(),
+  status: projectStatusSchema,
+  title: z.string(),
+  user_id: z.string(),
+});
 
 export const userRowSchema = z.object({
   created_at: z.string(),
