@@ -4,7 +4,7 @@ import type { PropsWithChildren } from "react";
 
 const Layout = async (props: PropsWithChildren) => {
   await connection();
-  void api.protected.emotes.read.prefetch();
+  void api.protected.forms.read.prefetch();
   return <HydrateClient>{props.children}</HydrateClient>;
 };
 
