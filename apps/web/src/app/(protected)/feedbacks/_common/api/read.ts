@@ -8,7 +8,7 @@ import { readSchema } from "@/feedbacks/schema/read";
 const query = async ({ ctx, input }: ProtectedProcedure<typeof readSchema>) => {
   const query = ctx.db
     .from("feedback_project")
-    .select()
+    .select("id, created_at, title, status")
     .eq("user_id", ctx.user.id);
 
   if (typeof input?.title !== "undefined")

@@ -16,7 +16,7 @@ export const Card = (props: Read["output"][number]) => {
         <CardHeader>
           <CardTitle className="text-xl">{props.title}</CardTitle>
           <CardDescription>
-            {new Date(props.created_at).toLocaleString()}
+            {new Date(props.created_at).toLocaleString("en-IN")}
           </CardDescription>
         </CardHeader>
         <CardFooter>
