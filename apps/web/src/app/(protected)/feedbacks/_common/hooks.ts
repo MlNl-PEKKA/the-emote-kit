@@ -1,6 +1,8 @@
 import { api } from "@/trpc/client/react";
 import type { Read } from "@/feedbacks/api/read";
 import { useFeedbacksStore } from "@/feedbacks/store";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/lib/hooks/use-toast";
 
 export const useFeedbacksRead = (): Read["output"] => {
   const title = useFeedbacksStore((store) => store.title);
@@ -9,5 +11,19 @@ export const useFeedbacksRead = (): Read["output"] => {
 };
 
 export const useFeedbacksCreate = () => {
-  return api.protected.feedbacks.create.useMutation();
+  const { toast } = useToast();
+  const router = useRouter();
+  return api.protected.feedbacks.create.useMutation({
+    onSuccess: ({ id }) => {
+      toast({
+        title: "Successfully created feedback project",
+      });
+      router.push(`/feedbacks/${id}`);
+    },
+    onError: ({ message }) =>
+      toast({
+        title: "Unable to create feedback project",
+        description: message,
+      }),
+  });
 };

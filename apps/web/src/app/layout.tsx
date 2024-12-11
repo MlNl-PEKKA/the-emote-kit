@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/client/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "The Emote Kit",
@@ -28,6 +29,7 @@ const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           disableTransitionOnChange
         >
           <TooltipProvider>
+            <Toaster />
             <TRPCReactProvider>{children}</TRPCReactProvider>
           </TooltipProvider>
         </ThemeProvider>

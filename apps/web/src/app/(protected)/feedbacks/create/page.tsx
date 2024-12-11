@@ -1,5 +1,7 @@
+import { CreateForm } from "@/feedbacks/components/CreateForm";
+
 const Page = () => {
-  return <>Create</>;
+  return <CreateForm />;
 };
 
 export default Page;
