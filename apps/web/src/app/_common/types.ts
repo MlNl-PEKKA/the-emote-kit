@@ -5,11 +5,13 @@ import type { NonUndefined } from "react-hook-form";
 
 type InputParams = undefined | string | readonly string[];
 
-type OutputParams<T extends InputParams> = T extends readonly string[]
-  ? Promise<{ [id in T[number]]: string }>
+type Params<T extends InputParams> = T extends readonly string[]
+  ? { [id in T[number]]: string }
   : T extends string
-    ? Promise<{ [id in T]: readonly string[] }>
+    ? { [id in T]: readonly string[] }
     : never;
+
+type OutputParams<T extends InputParams> = Promise<Params<T>>;
 
 type InputParallelRoutes = undefined | readonly string[];
 
@@ -38,6 +40,7 @@ export type NextProps<
 > = {
   page: PageProps<T>;
   layout: LayoutProps<T, U>;
+  params: Params<T>;
 };
 
 type PageProps<T extends InputParams = undefined> = T extends undefined
