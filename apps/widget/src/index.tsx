@@ -1,3 +1,3 @@
-import WidgetWebComponent from "@/components/Widget";
+import { EmoteKitWidget } from "./App.wc";
 
-customElements.define("emote-widget", WidgetWebComponent);
+customElements.define("emote-kit-widget", EmoteKitWidget);

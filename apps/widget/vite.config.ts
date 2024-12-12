@@ -18,7 +18,7 @@ export default defineConfig({
     lib: {
       entry: "./src/index.tsx",
       name: "widget",
-      fileName: (format) => `emote-widget.${format}.js`,
+      fileName: (format) => `emote-kit-widget.${format}.js`,
     },
     target: "esnext",
   },
