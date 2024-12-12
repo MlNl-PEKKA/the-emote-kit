@@ -1,3 +1,4 @@
 import { EmoteKitWidget } from "./App.wc";
+import { EMOTE_KIT_WIDGET } from "@repo/utils";
 
-customElements.define("emote-kit-widget", EmoteKitWidget);
+customElements.define(EMOTE_KIT_WIDGET, EmoteKitWidget);

@@ -1,9 +1,8 @@
+import type { EmoteKitWidgetProps } from "@repo/types";
 import type { PropsWithChildren } from "react";
 import { createContext, useContext } from "react";
 
-type Request = {
-  id: string;
-};
+type Request = Pick<EmoteKitWidgetProps, "id">;
 
 type Responses =
   | {

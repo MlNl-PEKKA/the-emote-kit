@@ -1,3 +1,6 @@
+import type React from "react";
+import type { EMOTE_KIT_WIDGET } from "@repo/utils";
+
 export type CustomizableTypes<T extends "Array" | "Object"> = T extends "Array"
   ? Record<string, unknown>[]
   : Record<string, unknown>;
@@ -74,3 +77,23 @@ type UnNullify<T extends CustomizableTypes<"Object">> = {
 export type Prettify<T extends CustomizableTypes<"Object">> = {
   [id in keyof T]: T[id];
 } & {};
+
+export type EmoteKitWidgetProps = {
+  id: string;
+  theme?: "light" | "dark";
+};
+
+export type EmoteKitWidgetWebComponentProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLElement>,
+  HTMLElement
+> &
+  EmoteKitWidgetProps;
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      [EMOTE_KIT_WIDGET]: EmoteKitWidgetWebComponentProps;
+    }
+  }
+}
