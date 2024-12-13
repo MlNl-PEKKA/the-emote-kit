@@ -56,12 +56,27 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.1.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@repo/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
+      '@repo/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
       '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@supabase/auth-js':
+        specifier: ^2.65.1
+        version: 2.65.1
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
       '@tanstack/react-query':
         specifier: ^5.59.13
         version: 5.62.0(react@18.3.1)
@@ -141,12 +156,6 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
-      '@supabase/ssr':
-        specifier: ^0.5.1
-        version: 0.5.2(@supabase/supabase-js@2.46.2)
-      '@supabase/supabase-js':
-        specifier: ^2.45.4
-        version: 2.46.2
       '@types/node':
         specifier: ^20.14.10
         version: 20.17.9
@@ -171,9 +180,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
-      '@repo/utils':
+      '@repo/constants':
         specifier: workspace:*
-        version: link:../../packages/utils
+        version: link:../../packages/constants
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -238,6 +247,18 @@ importers:
       vite:
         specifier: ^6.0.1
         version: 6.0.3(@types/node@20.17.9)(jiti@1.21.6)(yaml@2.6.1)
+
+  packages/constants:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
 
   packages/database:
     dependencies:
@@ -331,17 +352,67 @@ importers:
         specifier: ^3.4.15
         version: 3.4.15
 
-  packages/types:
+  packages/trpc:
+    dependencies:
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../database
+      '@supabase/auth-js':
+        specifier: ^2.65.1
+        version: 2.65.1
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
+      '@trpc/server':
+        specifier: ^11.0.0-rc.446
+        version: 11.0.0-rc.648(typescript@5.6.2)
+      next:
+        specifier: ^15.0.4
+        version: 15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      superjson:
+        specifier: ^2.2.1
+        version: 2.2.1
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@repo/utils':
         specifier: workspace:*
         version: link:../utils
+      '@trpc/react-query':
+        specifier: ^11.0.0-rc.446
+        version: 11.0.0-rc.648(@tanstack/react-query@5.62.0(react@18.3.1))(@trpc/client@11.0.0-rc.648(@trpc/server@11.0.0-rc.648(typescript@5.6.2))(typescript@5.6.2))(@trpc/server@11.0.0-rc.648(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
+
+  packages/types:
+    dependencies:
+      next:
+        specifier: ^15.0.4
+        version: 15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    devDependencies:
+      '@repo/constants':
+        specifier: workspace:*
+        version: link:../constants
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.12
@@ -355,10 +426,29 @@ importers:
   packages/typescript-config: {}
 
   packages/utils:
+    dependencies:
+      '@repo/constants':
+        specifier: workspace:*
+        version: link:../constants
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../database
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config

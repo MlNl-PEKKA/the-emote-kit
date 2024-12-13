@@ -1,5 +1,5 @@
 import type { FeedbackNextProps } from "@/feedback/types";
-import { api, HydrateClient } from "@/trpc/client/server";
+import { api, HydrateClient } from "@/trpc-client/server";
 
 const Layout = async (props: FeedbackNextProps["layout"]) => {
   const { feedback } = await props.params;

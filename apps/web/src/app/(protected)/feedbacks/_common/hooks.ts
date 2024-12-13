@@ -1,5 +1,5 @@
-import { api } from "@/trpc/client/react";
-import type { Read } from "@/feedbacks/api/read";
+import { api } from "@/trpc-client/react";
+import type { Read } from "@/feedbacks/types";
 import { useFeedbacksStore } from "@/feedbacks/store";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/lib/hooks/use-toast";

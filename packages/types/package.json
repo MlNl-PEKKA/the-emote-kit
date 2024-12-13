@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
+  "dependencies": {
+    "next": "^15.0.4"
+  },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/constants": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/utils": "workspace:*",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "typescript": "^5.6.2"

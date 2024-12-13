@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import type { Login } from "@/app/api/auth/login";
-import { api } from "@/trpc/client/server";
+import type { Login } from "@/app/types";
+import { api } from "@/trpc-client/server";
 import { connection } from "next/server";
 
 export const login = async (input: Login["input"]) => {

@@ -5,7 +5,7 @@ import {
   CardTitle,
   Card as UICard,
 } from "@/components/ui/card";
-import type { Read } from "@/feedbacks/api/read";
+import type { Read } from "@/feedbacks/types";
 import { StatusBadge } from "./StatusBadge";
 import Link from "next/link";
 

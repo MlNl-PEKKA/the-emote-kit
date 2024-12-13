@@ -1,5 +1,6 @@
 import type React from "react";
-import type { EMOTE_KIT_WIDGET } from "@repo/utils";
+import type { EMOTE_KIT_WIDGET } from "@repo/constants";
+import type { cookies } from "next/headers";
 
 export type CustomizableTypes<T extends "Array" | "Object"> = T extends "Array"
   ? Record<string, unknown>[]
@@ -97,3 +98,8 @@ declare global {
     }
   }
 }
+
+export type TRPCContext = {
+  headers: Headers;
+  cookies: Awaited<ReturnType<typeof cookies>>;
+};

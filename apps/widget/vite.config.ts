@@ -1,7 +1,7 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import type { EMOTE_KIT_WIDGET } from "@repo/utils";
+import type { EMOTE_KIT_WIDGET } from "@repo/constants";
 
 export default defineConfig({
   define: {

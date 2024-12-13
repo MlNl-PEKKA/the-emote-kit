@@ -5,7 +5,7 @@ import { useState, createContext, useContext } from "react";
 import type { StoreApi } from "zustand";
 import { createStore, useStore } from "zustand";
 
-import type { Read } from "@/feedbacks/api/read";
+import type { Read } from "@/feedbacks/types";
 import { READ } from "@/feedbacks/constants/read";
 
 import type { StoreType } from "@/app/types";

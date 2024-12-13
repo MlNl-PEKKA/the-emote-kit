@@ -3,6 +3,8 @@ import type { Prettify } from "@repo/types";
 import type { ReactNode } from "react";
 import type { NonUndefined } from "react-hook-form";
 
+export type { Login } from "@repo/trpc/routers/auth/login";
+
 type InputParams = undefined | string | readonly string[];
 
 type Params<T extends InputParams> = T extends readonly string[]

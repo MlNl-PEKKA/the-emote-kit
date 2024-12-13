@@ -1,4 +1,4 @@
-import { api, HydrateClient } from "@/trpc/client/server";
+import { api, HydrateClient } from "@/trpc-client/server";
 
 import { READ } from "@/feedbacks/constants/read";
 import { FeedbacksStoreProvider } from "@/feedbacks/store";

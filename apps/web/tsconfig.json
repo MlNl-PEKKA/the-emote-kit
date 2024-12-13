@@ -9,7 +9,7 @@
       "@/lib/*": ["./src/lib/*"],
       "@/db/*": ["./src/server/db/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/trpc/*": ["./src/trpc/*"],
+      "@/trpc-client/*": ["./src/trpc-client/*"],
       "@/env": ["./src/env.js"],
       "@/api/*": ["./src/app/api/*"],
       "@/app/*": ["./src/app/_common/*"],
@@ -28,5 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [{ "path": "../../packages/trpc" }]
 }

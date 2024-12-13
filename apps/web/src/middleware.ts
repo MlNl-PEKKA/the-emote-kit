@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-import { createProtectedClient } from "@/lib/createProtectedClient";
+import { createProtectedClient } from "@repo/utils/createProtectedClient";
 import { cookies } from "next/headers";
 import { PROTECTED_PATHS } from "@/protected/constants/paths";
-import { SafeObject } from "@/lib/safeObject";
+import { SafeObject } from "@repo/utils/safeObject";
 
 export const config = {
   matcher: [

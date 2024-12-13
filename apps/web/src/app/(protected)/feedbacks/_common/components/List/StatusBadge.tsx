@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import type { Read } from "@/feedbacks/api/read";
+import type { Read } from "@/feedbacks/types";
 import { cn } from "@/lib/utils";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";

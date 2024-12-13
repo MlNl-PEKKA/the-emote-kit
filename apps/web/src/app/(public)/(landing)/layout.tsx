@@ -1,5 +1,5 @@
 import type { LandingNextProps } from "@/public/landing/types";
-import { api, HydrateClient } from "@/trpc/client/server";
+import { api, HydrateClient } from "@/trpc-client/server";
 import { connection } from "next/server";
 
 const Layout = async (props: LandingNextProps["layout"]) => {

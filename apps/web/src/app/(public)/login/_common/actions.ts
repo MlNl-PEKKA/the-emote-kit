@@ -1,8 +1,8 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import type { Login } from "@/app/api/auth/login";
-import { api } from "@/trpc/client/server";
+import type { Login } from "@/app/types";
+import { api } from "@/trpc-client/server";
 
 const login = async (input: Login["input"]) => {
   const { url } = await api.auth.login(input);
