@@ -1,21 +1,9 @@
-import { Widget } from "@/components/Widget";
-import styles from "./index.css?inline";
-import { WidgetProvider } from "./providers/WidgetProvider";
-import { cn } from "./lib/utils";
-import type { EmoteKitWidgetProps } from "@repo/types";
-import { TRPCReactProvider } from "./trpc-client/react";
+import { Feedback } from "./components/Feedback";
 
-function App({ theme = "dark", ...props }: EmoteKitWidgetProps) {
+function App() {
   return (
     <>
-      <style>{styles}</style>
-      <span className={cn("widget", theme)}>
-        <TRPCReactProvider>
-          <WidgetProvider {...props}>
-            <Widget />
-          </WidgetProvider>
-        </TRPCReactProvider>
-      </span>
+      <Feedback id="66a8ba47-2831-4de9-82e6-bbdc0ac3f827" />
     </>
   );
 }

@@ -1,58 +1,31 @@
-import { api } from "@/trpc-client/react";
 import type { EmoteKitWidgetProps } from "@repo/types";
-import type { PropsWithChildren } from "react";
 import { createContext, useContext } from "react";
+import type { PropsWithChildren } from "react";
+import styles from "../index.css?inline";
+import { cn } from "@/lib/utils";
+import { TRPCReactProvider } from "@/trpc-client/react";
 
-type Request = Pick<EmoteKitWidgetProps, "id">;
+const WidgetContext = createContext<EmoteKitWidgetProps | undefined>(undefined);
 
-type Responses =
-  | {
-      type: "banner";
-      title: string;
-      hello: string | undefined;
-    }
-  | {
-      type: "feedback";
-      bro: string;
-      hello: string | undefined;
-    };
-
-const useDefaults = (props: Request): Responses => {
-  const { data: hello } = api.widget.hello.useQuery();
-  if (props.id !== "abc")
-    return {
-      type: "feedback",
-      bro: "Shit",
-      hello,
-    };
-  return {
-    type: "banner",
-    title: "hello",
-    hello,
-  };
-};
-
-const WidgetContext = createContext<Responses | undefined>(undefined);
-
-export const WidgetProvider = (props: PropsWithChildren<Request>) => {
-  const value = useDefaults(props);
+export const WidgetProvider = (
+  props: PropsWithChildren<EmoteKitWidgetProps>
+) => {
   return (
-    <WidgetContext.Provider value={value}>
-      {props.children}
-    </WidgetContext.Provider>
+    <>
+      <style>{styles}</style>
+      <span className={cn("widget", props.theme)}>
+        <TRPCReactProvider>
+          <WidgetContext.Provider value={props}>
+            {props.children}
+          </WidgetContext.Provider>
+        </TRPCReactProvider>
+      </span>
+    </>
   );
 };
 
-type Response<T extends Responses["type"] | undefined> = T extends undefined
-  ? Responses
-  : Extract<Responses, { type: T }>;
-
-export const useWidget = <T extends Responses["type"] | undefined>(
-  type?: T
-) => {
+export const useWidget = () => {
   const value = useContext(WidgetContext);
   if (!value) throw new Error("WidgetContext not found as a provider");
-  if (!type) return value as Response<T>;
-  if (value.type !== type) throw new Error("Widget type mismatch");
-  return value as Response<T>;
+  return value;
 };

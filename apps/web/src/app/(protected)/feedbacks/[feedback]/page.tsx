@@ -8,7 +8,8 @@ const Page = async (props: FeedbackNextProps["page"]) => {
     <>
       {feedback}
       <Script src={getWidgetUrl()} />
-      <emote-kit-widget id="xyz" theme="dark"></emote-kit-widget>
+      <emote-kit-feedback id={feedback} theme="dark"></emote-kit-feedback>
+      <emote-kit-banner id={feedback} theme="dark"></emote-kit-banner>
     </>
   );
 };

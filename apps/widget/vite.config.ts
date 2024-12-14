@@ -1,7 +1,7 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
-import type { EMOTE_KIT_WIDGET } from "@repo/constants";
+import type { EMOTE_KIT } from "@repo/constants";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
         entry: "./src/index.tsx",
         name: "widget",
         fileName: (format) =>
-          `${"emote-kit-widget" satisfies typeof EMOTE_KIT_WIDGET}.${format}.js`,
+          `${"emote-kit" satisfies typeof EMOTE_KIT}.${format}.js`,
       },
       target: "esnext",
     },

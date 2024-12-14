@@ -1,5 +1,6 @@
-import { createTRPCRouter, publicProcedure } from "../..";
+import { createTRPCRouter } from "../..";
+import { feedback } from "./feedback";
 
 export const widget = createTRPCRouter({
-  hello: publicProcedure.query(() => `Hello`),
+  feedback,
 });

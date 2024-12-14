@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import r2wc from "react-to-webcomponent";
-import App from "./App";
+import { Banner } from ".";
 
-export const EmoteKitWidget = r2wc(App, React, ReactDOM, {
+export const BannerWidget = r2wc(Banner, React, ReactDOM, {
   props: {
     id: "string",
     theme: "string",

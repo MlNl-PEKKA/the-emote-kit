@@ -1,5 +1,5 @@
 import type React from "react";
-import type { EMOTE_KIT_WIDGET } from "@repo/constants";
+import type { EMOTE_KIT_WIDGETS } from "@repo/constants";
 import type { cookies } from "next/headers";
 
 export type CustomizableTypes<T extends "Array" | "Object"> = T extends "Array"
@@ -84,18 +84,21 @@ export type EmoteKitWidgetProps = {
   theme?: "light" | "dark";
 };
 
-export type EmoteKitWidgetWebComponentProps = React.DetailedHTMLProps<
+type EmoteKitWidgetWebComponentProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLElement>,
   HTMLElement
 > &
   EmoteKitWidgetProps;
 
+type Widgets = (typeof EMOTE_KIT_WIDGETS)[keyof typeof EMOTE_KIT_WIDGETS];
+
+type WidgetProps = Record<Widgets, EmoteKitWidgetWebComponentProps>;
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
-    interface IntrinsicElements {
-      [EMOTE_KIT_WIDGET]: EmoteKitWidgetWebComponentProps;
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    interface IntrinsicElements extends WidgetProps {}
   }
 }
 

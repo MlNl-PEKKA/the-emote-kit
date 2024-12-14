@@ -43,7 +43,6 @@ export type RouterOutputs = inferRouterOutputs<AppRouter>;
 
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const router = useRouter();
-  console.log(`${getWebUrl()}/api/trpc`, "😒");
   const queryClient = getQueryClient(router);
   const [trpcClient] = useState(() =>
     api.createClient({
