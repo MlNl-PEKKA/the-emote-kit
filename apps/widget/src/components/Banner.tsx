@@ -6,6 +6,10 @@ import { useWidget } from "@/providers/WidgetProvider";
 const useBanner = () => useWidget("banner");
 
 export const Banner = () => {
-  const { title } = useBanner();
-  return <Button variant="outline">Banner {title}</Button>;
+  const { title, hello } = useBanner();
+  return (
+    <Button variant="outline">
+      {hello} Banner {title}
+    </Button>
+  );
 };

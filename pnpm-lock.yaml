@@ -183,6 +183,36 @@ importers:
       '@repo/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@repo/trpc':
+        specifier: workspace:*
+        version: link:../../packages/trpc
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      '@supabase/auth-js':
+        specifier: ^2.65.1
+        version: 2.65.1
+      '@supabase/ssr':
+        specifier: ^0.5.1
+        version: 0.5.2(@supabase/supabase-js@2.46.2)
+      '@supabase/supabase-js':
+        specifier: ^2.45.4
+        version: 2.46.2
+      '@tanstack/react-query':
+        specifier: ^5.59.13
+        version: 5.62.0(react@18.3.1)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.59.13
+        version: 5.62.0(@tanstack/react-query@5.62.0(react@18.3.1))(react@18.3.1)
+      '@trpc/client':
+        specifier: ^11.0.0-rc.446
+        version: 11.0.0-rc.648(@trpc/server@11.0.0-rc.648(typescript@5.6.2))(typescript@5.6.2)
+      '@trpc/react-query':
+        specifier: ^11.0.0-rc.446
+        version: 11.0.0-rc.648(@tanstack/react-query@5.62.0(react@18.3.1))(@trpc/client@11.0.0-rc.648(@trpc/server@11.0.0-rc.648(typescript@5.6.2))(typescript@5.6.2))(@trpc/server@11.0.0-rc.648(typescript@5.6.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+      '@trpc/server':
+        specifier: ^11.0.0-rc.446
+        version: 11.0.0-rc.648(typescript@5.6.2)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -201,6 +231,9 @@ importers:
       react-to-webcomponent:
         specifier: ^2.0.1
         version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      superjson:
+        specifier: ^2.2.1
+        version: 2.2.1
       tailwind-merge:
         specifier: ^2.5.5
         version: 2.5.5

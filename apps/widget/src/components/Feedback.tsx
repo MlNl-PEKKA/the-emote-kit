@@ -6,6 +6,10 @@ import { useWidget } from "@/providers/WidgetProvider";
 const useFeedback = () => useWidget("feedback");
 
 export const Feedback = () => {
-  const { bro } = useFeedback();
-  return <Button variant="outline">Feedback {bro}</Button>;
+  const { bro, hello } = useFeedback();
+  return (
+    <Button variant="outline">
+      {hello} Feedback {bro}
+    </Button>
+  );
 };

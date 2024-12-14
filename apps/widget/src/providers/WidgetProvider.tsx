@@ -1,3 +1,4 @@
+import { api } from "@/trpc-client/react";
 import type { EmoteKitWidgetProps } from "@repo/types";
 import type { PropsWithChildren } from "react";
 import { createContext, useContext } from "react";
@@ -8,21 +9,26 @@ type Responses =
   | {
       type: "banner";
       title: string;
+      hello: string | undefined;
     }
   | {
       type: "feedback";
       bro: string;
+      hello: string | undefined;
     };
 
 const useDefaults = (props: Request): Responses => {
+  const { data: hello } = api.widget.hello.useQuery();
   if (props.id !== "abc")
     return {
       type: "feedback",
       bro: "Shit",
+      hello,
     };
   return {
     type: "banner",
     title: "hello",
+    hello,
   };
 };
 

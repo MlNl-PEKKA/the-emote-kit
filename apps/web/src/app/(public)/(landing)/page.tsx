@@ -14,7 +14,7 @@ const Page = () => (
         href="#"
       >
         <Smile className="mr-2 h-6 w-6" />
-        <span className="font-bold">The Emote Kit {process.env.LK}</span>
+        <span className="font-bold">The Emote Kit</span>
       </Link>
       <nav className="ml-auto flex items-center gap-4 sm:gap-6">
         <Link
