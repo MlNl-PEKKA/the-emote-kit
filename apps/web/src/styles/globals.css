@@ -28,15 +28,15 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --dot-size: 1px;
+    --dot-size: 1.5px;
     --dot-space: 15px;
   }
   .dark {
@@ -64,10 +64,10 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 6%;
+    --sidebar-background: 0 0% 0%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
@@ -87,12 +87,12 @@
     background:
       linear-gradient(
           90deg,
-          hsl(var(--card)) calc(var(--dot-space) - var(--dot-size)),
+          hsl(var(--background)) calc(var(--dot-space) - var(--dot-size)),
           transparent 1%
         )
         center / var(--dot-space) var(--dot-space),
       linear-gradient(
-          hsl(var(--card)) calc(var(--dot-space) - var(--dot-size)),
+          hsl(var(--background)) calc(var(--dot-space) - var(--dot-size)),
           transparent 1%
         )
         center / var(--dot-space) var(--dot-space),

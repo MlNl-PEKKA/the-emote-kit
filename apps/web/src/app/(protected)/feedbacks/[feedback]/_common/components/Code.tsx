@@ -50,7 +50,7 @@ export const Code = () => {
 
 const Terminal = (props: PropsWithChildren) => {
   return (
-    <div className="relative flex flex-col rounded-lg border text-card-foreground shadow-sm w-full h-full px-2 pt-2 pb-4 bg-background gap-2 min-w-10">
+    <div className="relative flex flex-col text-card-foreground shadow-sm w-full h-full px-2 pt-2 pb-4 bg-background gap-2 min-w-10">
       <Buttons />
       {props.children}
       <span className="absolute top-0 right-0 m-1">
