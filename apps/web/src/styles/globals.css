@@ -36,6 +36,8 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --dot-size: 1px;
+    --dot-space: 15px;
   }
   .dark {
     --background: 0 0% 0%;
@@ -78,5 +80,22 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+@layer components {
+  .dotted {
+    background:
+      linear-gradient(
+          90deg,
+          hsl(var(--card)) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      linear-gradient(
+          hsl(var(--card)) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      hsl(var(--muted));
   }
 }

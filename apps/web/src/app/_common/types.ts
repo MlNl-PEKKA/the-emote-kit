@@ -8,7 +8,11 @@ export type { Login } from "@repo/trpc/routers/auth/login";
 type InputParams = undefined | string | readonly string[];
 
 type Params<T extends InputParams> = T extends readonly string[]
-  ? { [id in T[number]]: string }
+  ? T extends [...infer Head, "all"]
+    ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-expect-error
+      Prettify<{ all: string[] } & Record<[...Head][number], string>>
+    : Record<T[number], string>
   : T extends string
     ? { [id in T]: readonly string[] }
     : never;

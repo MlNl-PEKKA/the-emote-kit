@@ -1,16 +1,25 @@
-import type { FeedbackNextProps } from "@/feedback/types";
-import { getWidgetUrl } from "@repo/utils/getWidgetUrl";
-import Script from "next/script";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { Configurations } from "@/feedback/components/Configurations";
+import { Preview } from "@/feedback/components/Preview";
 
-const Page = async (props: FeedbackNextProps["page"]) => {
-  const { feedback } = await props.params;
+const Page = async () => {
   return (
-    <>
-      {feedback}
-      <Script src={getWidgetUrl()} />
-      <emote-kit-feedback id={feedback} theme="dark"></emote-kit-feedback>
-      <emote-kit-banner id={feedback} theme="dark"></emote-kit-banner>
-    </>
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="rounded-lg border bg-card text-card-foreground shadow-sm w-full h-full"
+    >
+      <ResizablePanel defaultSize={55}>
+        <Configurations />
+      </ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel>
+        <Preview />
+      </ResizablePanel>
+    </ResizablePanelGroup>
   );
 };
 
