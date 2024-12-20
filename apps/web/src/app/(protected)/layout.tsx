@@ -6,7 +6,7 @@ import type { ProtectedNextProps } from "@/protected/types";
 const Layout = (props: ProtectedNextProps["layout"]) => {
   return (
     <PathProvider>
-      <SidebarProvider className="min-h-screen">
+      <SidebarProvider className="min-h-screen overflow-hidden">
         <AppSidebar />
         <SidebarInset className="px-2 py-2 gap-2 h-screen">
           <header className="flex h-[3rem] w-full items-center justify-between px-4">

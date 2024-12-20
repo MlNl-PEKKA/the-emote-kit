@@ -20,11 +20,11 @@ const Page = async () => {
       <Handle />
       <Card className="border-none" defaultSize={40}>
         <ResizablePanelGroup direction="vertical">
-          <Card defaultSize={70}>
+          <Card defaultSize={67.7}>
             <Preview />
           </Card>
           <Handle />
-          <Card defaultSize={30}>
+          <Card defaultSize={32.3}>
             <Code />
           </Card>
         </ResizablePanelGroup>
@@ -42,7 +42,7 @@ const Card = ({
 }: Parameters<typeof ResizablePanel>[0]) => {
   return (
     <ResizablePanel
-      className={cn("rounded-lg border shadow-sm", className)}
+      className={cn("rounded-lg border shadow-sm w-full h-full", className)}
       {...props}
     >
       {children}
