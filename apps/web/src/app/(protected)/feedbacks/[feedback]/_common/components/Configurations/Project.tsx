@@ -38,7 +38,7 @@ import { updateSchema } from "@repo/utils/src/schema/feedbacks";
 import { useForm } from "react-hook-form";
 import type { TypeOf } from "zod";
 
-export const General = () => {
+export const Project = () => {
   return (
     <div className="flex flex-col w-full h-full bg-background gap-4 border-none">
       <ProjectDetails className="basis-[65%]" />

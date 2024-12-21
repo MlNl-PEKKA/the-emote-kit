@@ -1,8 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import type { PropsWithChildren } from "react";
-import { General } from "./General";
-import { Slides } from "./Slides";
+import { Project } from "./Project";
+import { Widget } from "./Widget";
 
 export const Configurations = ({
   className,
@@ -14,15 +14,15 @@ export const Configurations = ({
         "flex flex-col w-full h-full items-center gap-2",
         className
       )}
-      defaultValue="general"
+      defaultValue="project"
       {...props}
     >
       <TabsList className="flex w-full flex-row justify-evenly">
-        <TabsTrigger className="w-full" value="general">
-          General
+        <TabsTrigger className="w-full" value="project">
+          Project
         </TabsTrigger>
-        <TabsTrigger className="w-full" value="slides">
-          Slides
+        <TabsTrigger className="w-full" value="widget">
+          Widget
         </TabsTrigger>
       </TabsList>
       <Content />
@@ -41,11 +41,11 @@ const ContentWrapper = (props: PropsWithChildren<{ value: string }>) => {
 const Content = () => {
   return (
     <>
-      <ContentWrapper value="general">
-        <General />
+      <ContentWrapper value="project">
+        <Project />
       </ContentWrapper>
-      <ContentWrapper value="slides">
-        <Slides />
+      <ContentWrapper value="widget">
+        <Widget />
       </ContentWrapper>
     </>
   );
